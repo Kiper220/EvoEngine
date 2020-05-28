@@ -4,6 +4,7 @@ project(EvoEngine)
 add_subdirectory(RVM)
 add_subdirectory(RTL)
 add_subdirectory(RTMath)
+add_subdirectory(RTGraphics)
 
 find_package(Boost REQUIRED)
 
