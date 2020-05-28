@@ -1,0 +1,207 @@
+//
+// Created by kiper220 on 22.05.2020.
+//
+#ifndef EVOENGINE_VECTOR_H
+#define EVOENGINE_VECTOR_H
+#include <initializer_list>
+#include <cstddef>
+#include <algorithm>
+
+namespace RTL{
+    /**
+     *
+     * \brief Red Template Library Vector
+     * \authors WetGrape | Kiper220
+     * \copyright GNU LGPL
+     *
+     **/
+
+    template<typename type>
+    class Vector {
+        typedef const type* const_iterator;
+        typedef type* iterator;
+        typedef Vector<type> && Move_Type;
+
+    public:
+        /**
+         * Standart zero constructor
+         */
+        Vector(): _array(nullptr), _size(0) {}
+        /**
+         * Standard сopy constructor
+         * \arg vector - target copy;
+         */
+        Vector(const Vector& vector): _size(vector._size) {
+            this->_array = new type[this->_size];
+            if(this->_array == nullptr) exit(11);
+
+            for(size_t i = 0; i < this->_size; i++)
+                this->_array[i] = vector._array[i];
+        }
+        /**
+         * Standard move constructor
+         * \arg vector - target move;
+         */
+        Vector(Vector&& vector): _array(vector._array), _size(vector._size) {
+            vector._array = nullptr;
+            vector._size = 0;
+        }
+        /**
+         * Standard constructor copy of static array
+         * \arg array - static array;
+         */
+        Vector(std::initializer_list<type> array): _size(array.end() - array.begin()) {
+            this->_array = new type[this->_size];
+            if(this->_array == nullptr) exit(11);
+
+            for(size_t i = 0; i < this->_size; i++)
+                this->_array[i] = array.begin()[i];
+        }
+        /**
+         * Constructor with a dynamic array argument
+         * \arg array - dynamic array;
+         * \arg size - size of array;
+         */
+        Vector(const_iterator array, size_t size):_size(size) {
+            this->_array = new type[this->_size];
+            if(this->_array == nullptr) exit(11);
+
+            for(size_t i = 0; i < this->_size; i++)
+                this->_array[i] = array[i];
+        }
+        /**
+         * Constructor with an argument for the beginning and end of the array
+         * \arg _begin - begin of array;
+         * \arg _end - end of array;
+         */
+        Vector(const_iterator _begin, const_iterator _end): _size(_end - _begin) {
+            this->_array = new type[this->_size];
+            if(this->_array == nullptr) exit(11);
+
+            for(size_t i = 0; i < this->_size; i++)
+                this->_array[i] = _begin[i];
+        }
+        /**
+         * Insert vector method
+         * \arg type1 - insert data;
+         * \arg element - insert element position;
+         */
+        void insert(type &&type1, size_t element) {
+            if(element > this->_size) element = this->_size;
+            iterator tmp = new type[++this->_size];
+            if(tmp == nullptr) exit(11);
+            size_t i = 0;
+            for(; i < element; i++)
+                tmp[i] = this->_array[i];
+            tmp[i] = type1;
+            for(++i; i < this->_size; i++)
+                tmp[i] = this->_array[i - 1];
+
+            delete [] this->_array;
+            this->_array = tmp;
+        }
+        /**
+         * Insert vector method
+         * \arg type1 - insert Data;
+         * \arg element - insert element position;
+         */
+        void erase(size_t element) {
+            if(element >= this->_size) element = this->_size - 1;
+            iterator tmp = new type[--this->_size];
+            if(tmp == nullptr) exit(11);
+
+            size_t i = 0;
+            for(; i < element; i++)
+                tmp[i] = this->_array[i];
+            i++;
+            for(; i < this->_size; i++)
+                tmp[i] = this->_array[i];
+
+            delete [] this->_array;
+            this->_array = tmp;
+        }
+        /**
+         * Insert move method
+         * \arg type1 - insert data;
+         * \arg element - insert element position;
+         */
+        void move(type &&type1, size_t element) {
+            this->_array[element] = type1;
+        }
+        size_t size(){
+            return this->_size;
+        }
+        /**
+         * Set size method
+         * \arg _size - New vector size;
+         */
+        void setSize(size_t _size) {
+            iterator tmp = new type[_size];
+            if(tmp == nullptr) exit(11);
+
+            size_t t = std::min(this->_size, _size);
+
+            for(size_t i = 0; i < t; i++)
+                tmp[i] = this->_array[i];
+
+            delete [] this->_array;
+            this->_array = tmp;
+        }
+        /**
+         * Push back method
+         * \arg type1 - target data to insert in end of vector;
+         */
+        void push_back(type type1) {
+            this->insert(std::move(type1), this->_size);
+        }
+        /**
+         * Pop back method
+         * \arg element -  target element position to erase;
+         */
+        void pop_back(size_t element) {
+            this->erase(element);
+        }
+        /**
+         * The overloading operator method of the "[]"
+         * \arg _element - element id in vector;
+         * \return Reference to an vector element;
+         * \warning If vector is clear, then this method return (nullptr);
+         */
+        type& operator[](size_t _element) {
+            if(this->_array == nullptr)
+                return *static_cast<type*>(nullptr);
+            if(_element >= this->_size)
+                _element = this->_size - 1;
+            return this->_array[_element];
+        }
+        /**
+         * Is empty function
+         * \return Return vector is empty
+         */
+        bool IsEmpty() {
+            return this->size == 0;
+        }
+        /**
+         * Clear vector function
+         */
+        void Clear() {
+            delete [] this->_array;
+            this->_array = nullptr;
+            this->_size = 0;
+        }
+        /**
+         * Standart vector destructor
+         */
+        ~Vector() {
+            delete [] this->_array;
+            this->_array = nullptr;
+            _size = 0;
+        }
+
+    private:
+        iterator _array;
+        size_t _size;
+    };
+}
+
+#endif //EVOENGINE_VECTOR_H
