@@ -7,7 +7,7 @@ using namespace RTL;
 
 
 int main(){
-    Directory dir("./Mods");
+    Directory dir(".");
     std::cout << "All Objects Count: " << EntitiesCount(dir)
     << "\nAll File Count: " << FileCount(dir)
     << "\nAll Directories Count: " << DirectoriesCount(dir);
