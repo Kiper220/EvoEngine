@@ -28,7 +28,7 @@ namespace RTL{
          */
         Vector(): _array(nullptr), _size(0) {}
         /**
-         * Standard сopy constructor
+         * Standard copy constructor
          * \arg vector - target copy;
          */
         Vector(const Vector& vector): _size(vector._size) {
@@ -42,7 +42,7 @@ namespace RTL{
          * Standard move constructor
          * \arg vector - target move;
          */
-        Vector(Vector&& vector): _array(vector._array), _size(vector._size) {
+        Vector(const Vector&& vector): _array(vector._array), _size(vector._size) {
             vector._array = nullptr;
             vector._size = 0;
         }
@@ -81,12 +81,45 @@ namespace RTL{
             for(size_t i = 0; i < this->_size; i++)
                 this->_array[i] = _begin[i];
         }
+
+        /**
+         * Overload operator copy
+         * \arg vector - target copy;
+         */
+        Vector& operator=(const Vector& vector) {
+            delete [] this->_array;
+
+            _size = vector._size;
+            this->_array = new type[this->_size];
+            if(this->_array == nullptr) exit(11);
+
+            for(size_t i = 0; i < this->_size; i++)
+                this->_array[i] = vector._array[i];
+
+            return *this;
+        }
+        /**
+         * Overload operator move
+         * \arg vector - target move;
+         */
+        Vector& operator=(Vector&& vector) {
+            delete [] this->_array;
+
+            _size = vector._size;
+            this->_array = vector._array;
+
+            vector._array = nullptr;
+            vector._size = 0;
+
+            return *this;
+        }
+
         /**
          * Insert vector method
          * \arg type1 - insert data;
          * \arg element - insert element position;
          */
-        void insert(type &&type1, size_t element) {
+        void Insert(type &&type1, size_t element) {
             if(element > this->_size) element = this->_size;
             iterator tmp = new type[++this->_size];
             if(tmp == nullptr) exit(11);
@@ -105,7 +138,7 @@ namespace RTL{
          * \arg type1 - insert Data;
          * \arg element - insert element position;
          */
-        void erase(size_t element) {
+        void Erase(size_t element) {
             if(element >= this->_size) element = this->_size - 1;
             iterator tmp = new type[--this->_size];
             if(tmp == nullptr) exit(11);
@@ -125,17 +158,56 @@ namespace RTL{
          * \arg type1 - insert data;
          * \arg element - insert element position;
          */
-        void move(type &&type1, size_t element) {
+        void Move(type &&type1, size_t element) {
             this->_array[element] = type1;
         }
-        size_t size(){
+        /**
+         * Get method of vector siye
+         * \return size of array
+         */
+        size_t Size() const{
             return this->_size;
         }
+
+        /**
+         * Begin method for foreach
+         * \return size of array
+         */
+        type* begin(){
+            return &this->_array[0];
+        }
+        /**
+         * Begin(const) method for foreach
+         * \return size of array
+         */
+        const type* begin() const{
+            return &this->_array[0];
+        }
+
+        /**
+         * End method for foreach
+         * \return size of array
+         */
+        type* end(){
+            if(this->_array != nullptr)
+                return &this->_array[this->_size];
+            return nullptr;
+        }
+        /**
+         * End(const) method for foreach
+         * \return size of array
+         */
+        const type* end() const{
+            if(this->_array != nullptr)
+                return &this->_array[this->_size];
+            return nullptr;
+        }
+
         /**
          * Set size method
          * \arg _size - New vector size;
          */
-        void setSize(size_t _size) {
+        void SetSize(size_t _size) {
             iterator tmp = new type[_size];
             if(tmp == nullptr) exit(11);
 
@@ -151,14 +223,14 @@ namespace RTL{
          * Push back method
          * \arg type1 - target data to insert in end of vector;
          */
-        void push_back(type type1) {
-            this->insert(std::move(type1), this->_size);
+        void Push_Back(type type1) {
+            this->Insert(std::move(type1), this->_size);
         }
         /**
          * Pop back method
          * \arg element -  target element position to erase;
          */
-        void pop_back(size_t element) {
+        void Pop_Back(size_t element) {
             this->erase(element);
         }
         /**
@@ -168,6 +240,19 @@ namespace RTL{
          * \warning If vector is clear, then this method return (nullptr);
          */
         type& operator[](size_t _element) {
+            if(this->_array == nullptr)
+                return *static_cast<type*>(nullptr);
+            if(_element >= this->_size)
+                _element = this->_size - 1;
+            return this->_array[_element];
+        }
+        /**
+         * The overloading operator method of the "[]"
+         * \arg _element - element id in vector;
+         * \return Reference to an vector element;
+         * \warning If vector is clear, then this method return (nullptr);
+         */
+        const type& operator[](size_t _element) const{
             if(this->_array == nullptr)
                 return *static_cast<type*>(nullptr);
             if(_element >= this->_size)
