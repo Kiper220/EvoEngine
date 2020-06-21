@@ -13,3 +13,5 @@ The project is completely free and distributed under the MIT license. The source
 Project author:
 * WetGrape
     * Kiper220
+    
+Support: gkya@wetgrape.su
