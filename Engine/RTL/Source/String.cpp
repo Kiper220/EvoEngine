@@ -90,17 +90,17 @@ namespace RTL{
         return *this;
     }
 
-    String String::operator +(const String& string) {
+    String String::operator +(const String& string) const{
         String tmp = *this;
         tmp.Concatenate(string);
         return tmp;
     }
-    String String::operator +(String&& string) {
+    String String::operator +(String&& string) const{
         String tmp = *this;
         tmp.Concatenate(string);
         return tmp;
     }
-    String String::operator +(const char* string) {
+    String String::operator +(const char* string) const{
         String tmp = *this;
         tmp.Concatenate(string);
         return tmp;
@@ -933,7 +933,16 @@ namespace RTL{
         return strlen(this->str);
     }
 
-    String::operator const char*() {
+    void String::Clear(){
+        delete [] this->str;
+        this->str == nullptr;
+    }
+
+    bool String::IsEmpty() const{
+        return this->str == nullptr;
+    }
+
+    String::operator const char*() const{
         return this->str;
     }
 

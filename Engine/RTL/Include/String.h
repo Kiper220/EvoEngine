@@ -72,17 +72,17 @@ namespace RTL{
          * \brief String overload operator+
          * \arg string - target string;
          * */
-        String operator +(const String& string);
+        String operator +(const String& string) const;
         /**
          * \brief String overload operator+
          * \arg string - target string;
          * */
-        String operator +(String&& string);
+        String operator +(String&& string) const;
         /**
          * \brief String overload operator+
          * \arg string - target string;
          * */
-        String operator +(const char* string);
+        String operator +(const char* string) const;
 
         /**
          * \brief String overload operator()
@@ -347,10 +347,21 @@ namespace RTL{
         size_t Size();
 
         /**
+         * \brief String clear method
+         * */
+        void Clear();
+
+        /**
+         * \brief String is empty
+         * \return is empty
+         * */
+        bool IsEmpty() const;
+
+        /**
          * \brief String overload operator(const char*)
          * \arg string - target string;
          * */
-        operator const char*();
+        operator const char*() const;
 
         /**
          * \brief Standart String destructor
