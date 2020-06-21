@@ -1,7 +1,10 @@
 var searchData=
 [
-  ['insert',['Insert',['../classRTL_1_1String.html#ab557c88febe43140ff38c487d1ebf922',1,'RTL::String::Insert(String &amp;string, size_t pos)'],['../classRTL_1_1String.html#a6bbe4aa0051591f224a21814033ae1c6',1,'RTL::String::Insert(String &amp;&amp;string, size_t pos)'],['../classRTL_1_1String.html#ab9e71436bb62add97752dbd2400bfb90',1,'RTL::String::Insert(const char *string, size_t pos)'],['../classRTL_1_1String.html#a738457a19f2f670f6e5c913e0f80f66d',1,'RTL::String::Insert(String &amp;string1, String &amp;string2, size_t pos)'],['../classRTL_1_1String.html#a8c5c8c1af0b7ba40965935e71ecfd60a',1,'RTL::String::Insert(String &amp;string1, const char *string2, size_t pos)'],['../classRTL_1_1String.html#a2f36737a78072f5615421a59402bef09',1,'RTL::String::Insert(const char *string1, String &amp;string2, size_t pos)'],['../classRTL_1_1String.html#af541ea869de2e8cc956ad8d625587d6c',1,'RTL::String::Insert(const char *string1, const char *string2, size_t pos)'],['../classRTL_1_1Vector.html#a702afe37b1d37ce792176c2d1e14003e',1,'RTL::Vector::insert()']]],
-  ['inverse',['inverse',['../classEvoEngine_1_1Math_1_1Quaternion.html#aaa688dcdb4c054975a1582ac10df0695',1,'EvoEngine::Math::Quaternion']]],
-  ['invertmatrix',['invertMatrix',['../classEvoEngine_1_1Math_1_1Matrix3.html#ae01c36759b37cfba2dfe1792e1c65958',1,'EvoEngine::Math::Matrix3']]],
-  ['isempty',['IsEmpty',['../classRTL_1_1Map.html#a3ddd1d217ce10e092c2d938532229b5d',1,'RTL::Map::IsEmpty()'],['../classRTL_1_1Vector.html#ae5622712a4acff6a1d21a199dc206806',1,'RTL::Vector::IsEmpty()']]]
+  ['getcurrentpath',['GetCurrentPath',['../classRTL_1_1Directory.html#a9a021f57b9a47764c39e4cfc533c3e4a',1,'RTL::Directory']]],
+  ['getdirectoryentities',['GetDirectoryEntities',['../classRTL_1_1Directory.html#ae2c3699a1ab3d4370cf976411a7dd119',1,'RTL::Directory']]],
+  ['getdirectoryentitiescount',['GetDirectoryEntitiesCount',['../classRTL_1_1Directory.html#aee760bf6790769cc28a4853f61b9ccf6',1,'RTL::Directory']]],
+  ['getdirectoryentity',['GetDirectoryEntity',['../classRTL_1_1Directory.html#a1ddcf002a4a561c8d590d342b465543d',1,'RTL::Directory']]],
+  ['getglobaltriangle',['getGlobalTriangle',['../classEvoEngine_1_1Math_1_1Collision_1_1Triangle.html#a9f967a0bfed3ff2955eba95bc83f9ae5',1,'EvoEngine::Math::Collision::Triangle']]],
+  ['getinverseofmatrix',['getInverseOfMatrix',['../classEvoEngine_1_1Math_1_1Matrix3.html#a2f00628f61fb61b27024c5d380f5f5dc',1,'EvoEngine::Math::Matrix3']]],
+  ['gettransposeofmatrix',['getTransposeOfMatrix',['../classEvoEngine_1_1Math_1_1Matrix3.html#a5ecede156c1ee7a19d20fc849ddf1653',1,'EvoEngine::Math::Matrix3']]]
 ];

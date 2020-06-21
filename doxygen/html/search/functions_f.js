@@ -1,11 +1,6 @@
 var searchData=
 [
-  ['_7ematrix3',['~Matrix3',['../classEvoEngine_1_1Math_1_1Matrix3.html#a4dc6c6b7898a4a7eea7f1b16b4326bfd',1,'EvoEngine::Math::Matrix3']]],
-  ['_7equaternion',['~Quaternion',['../classEvoEngine_1_1Math_1_1Quaternion.html#a8b82001ed87864e6f03d88a90c0c6a04',1,'EvoEngine::Math::Quaternion']]],
-  ['_7estring',['~String',['../classRTL_1_1String.html#a441a70e8e92404cc1b9e4b6ee06fbd07',1,'RTL::String']]],
-  ['_7ethread',['~Thread',['../classRTL_1_1Thread.html#afb98e717d9380dd1245dedf129ba11f4',1,'RTL::Thread']]],
-  ['_7etriangle',['~Triangle',['../classEvoEngine_1_1Math_1_1Collision_1_1Triangle.html#a9ecc11b043da5cb791c0b28650235569',1,'EvoEngine::Math::Collision::Triangle']]],
-  ['_7evector',['~Vector',['../classRTL_1_1Vector.html#aa342f3efbcb75870df03ca498829e97a',1,'RTL::Vector']]],
-  ['_7evector2',['~Vector2',['../classEvoEngine_1_1Math_1_1Vector2.html#aa878cc528303249f8871478b6000c30e',1,'EvoEngine::Math::Vector2']]],
-  ['_7evector3',['~Vector3',['../classEvoEngine_1_1Math_1_1Vector3.html#aff1768b48b442778b96ade8fe33fff34',1,'EvoEngine::Math::Vector3']]]
+  ['vector',['Vector',['../classRTL_1_1Vector.html#a0ac326beef4a879a2e502c0900f36ead',1,'RTL::Vector::Vector()'],['../classRTL_1_1Vector.html#a1ce138b6158d4e7fe4f83ee0daa692fd',1,'RTL::Vector::Vector(const Vector &amp;vector)'],['../classRTL_1_1Vector.html#a2ef5518adeb7b75204a9268b0317a325',1,'RTL::Vector::Vector(const Vector &amp;&amp;vector)'],['../classRTL_1_1Vector.html#aa5e6def751cec222179dcccecf4b4d18',1,'RTL::Vector::Vector(std::initializer_list&lt; type &gt; array)'],['../classRTL_1_1Vector.html#a530b1845912f686f743fade81599e4d6',1,'RTL::Vector::Vector(const_iterator array, size_t size)'],['../classRTL_1_1Vector.html#a7e98bfadb6f032c38d1e5e06ad4091ec',1,'RTL::Vector::Vector(const_iterator _begin, const_iterator _end)']]],
+  ['vector2',['Vector2',['../classEvoEngine_1_1Math_1_1Vector2.html#a695200702d100c87f7ee6a24750b2b80',1,'EvoEngine::Math::Vector2::Vector2()'],['../classEvoEngine_1_1Math_1_1Vector2.html#ae345d97928001d883ecdd165dd45860c',1,'EvoEngine::Math::Vector2::Vector2(float uX, float uY)'],['../classEvoEngine_1_1Math_1_1Vector2.html#a64dc646e555d8333bd8cfb358fa1cf6c',1,'EvoEngine::Math::Vector2::Vector2(const Vector2 &amp;vector2)']]],
+  ['vector3',['Vector3',['../classEvoEngine_1_1Math_1_1Vector3.html#a8ebc215322c62db62e938ad060757859',1,'EvoEngine::Math::Vector3::Vector3()'],['../classEvoEngine_1_1Math_1_1Vector3.html#ae0f8904a9eba6486140d76e2d6428f40',1,'EvoEngine::Math::Vector3::Vector3(float uX, float uY, float uZ)'],['../classEvoEngine_1_1Math_1_1Vector3.html#a07049935ff723ba24a3a14faf5f8f80e',1,'EvoEngine::Math::Vector3::Vector3(const Vector3 &amp;vector3)']]]
 ];

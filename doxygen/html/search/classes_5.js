@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['stdregister',['stdRegister',['../unionEvoEngine_1_1RVM_1_1stdRegister.html',1,'EvoEngine::RVM']]],
-  ['string',['String',['../classRTL_1_1String.html',1,'RTL']]]
+  ['quaternion',['Quaternion',['../classEvoEngine_1_1Math_1_1Quaternion.html',1,'EvoEngine::Math']]]
 ];
