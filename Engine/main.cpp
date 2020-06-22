@@ -7,8 +7,7 @@ using namespace RTL;
 
 
 int main(){
-    Directory dir("./Game");
-    std::cout << "All Objects Count: " << EntitiesCount(dir)
-    << "\nAll File Count: " << FileCount(dir)
-    << "\nAll Directories Count: " << DirectoriesCount(dir);
+    struct stat st;
+    stat("./EvoEngine", &st);
+    std::cout << st.st_size;
 }
