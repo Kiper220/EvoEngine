@@ -11,6 +11,4 @@ set(CMAKE_BINARY_DIR ${PROJECT_SOURCE_DIR})
 
 set(PROJECT_DIR ${PROJECT_SOURCE_DIR})
 
-find_package(OpenGL REQUIRED)
-
 add_subdirectory(Engine)
