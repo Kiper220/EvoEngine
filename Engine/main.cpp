@@ -1,13 +1,10 @@
 #include <iostream>
-#include <sys/stat.h>
-#include <Directory.h>
+#include <dirent.h>
+#include <FSEntity.h>
 
-using namespace std;
-using namespace RTL;
-
-
-int main(){
-    struct stat st;
-    stat("./EvoEngine", &st);
-    std::cout << st.st_size;
+int main(int argv, char **args) {
+    GLOBALDIR_INIT()
+    DIR* dir = opendir(RTL::GetGlobalPath(RTL::GetMinimizedPath("./Engine/../Game/Maps")));
+    struct dirent* ent = readdir(dir);
+    std::cout << ent->d_name;
 }

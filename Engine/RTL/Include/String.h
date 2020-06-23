@@ -341,10 +341,21 @@ namespace RTL{
         void Cut(size_t _start, size_t _end);
 
         /**
+         * \brief String wrest method
+         * \arg _start - new string start;
+         * */
+        String Wrest(size_t _start) const;
+        /**
+         * \brief String wrest method
+         * \arg _start - new string start;
+         * \arg _end - new string end;
+         * */
+        String Wrest(size_t _start, size_t _end) const;
+        /**
          * \brief String size method
          * \return Size of String
          * */
-        size_t Size();
+        size_t Size() const;
 
         /**
          * \brief String clear method

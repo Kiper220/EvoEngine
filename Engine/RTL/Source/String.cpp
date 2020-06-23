@@ -13,6 +13,7 @@ namespace RTL{
     String::String(const String& string) {
         if(string.str == nullptr) {
             this->str = nullptr;
+            return;
         }
         size_t s = strlen(string.str);
         this->str = new char[s + 1];
@@ -29,6 +30,7 @@ namespace RTL{
     String::String(const char* string) {
         if(string == nullptr) {
             this->str = nullptr;
+            return;
         }
         size_t s = strlen(string);
         this->str = new char[s + 1];
@@ -41,7 +43,7 @@ namespace RTL{
 
     String& String::operator =(const String& string) {
         delete [] this->str;
-        if(string.str == nullptr) {
+        if(string.str == nullptr || &string == nullptr) {
             this->str = nullptr;
             return *this;
         }
@@ -540,6 +542,9 @@ namespace RTL{
     void String::Concatenate(const String& string) {
         if(string.str == nullptr) {
             return;
+        }else if(this->str == nullptr){
+            *this = string;
+            return;
         }
         size_t s1 = strlen(this->str), s2 = strlen(string.str), i = 0;
         char * tmp = new char[s1 + s2 + 1];
@@ -557,6 +562,9 @@ namespace RTL{
     }
     void String::Concatenate(String&& string) {
         if(string.str == nullptr) {
+            return;
+        }else if(this->str == nullptr){
+            *this = string;
             return;
         }
         size_t s1 = strlen(this->str), s2 = strlen(string.str), i = 0;
@@ -577,6 +585,9 @@ namespace RTL{
     }
     void String::Concatenate(const char* string) {
         if(string == nullptr) {
+            return;
+        }else if(this->str == nullptr){
+            *this = string;
             return;
         }
         size_t s1 = strlen(this->str), s2 = strlen(string), i = 0;
@@ -908,6 +919,10 @@ namespace RTL{
 
     void String::Cut(size_t _start) {
         size_t s = strlen(this->str);
+        if(_start == s) {
+            delete[] this->str;
+            this->str = nullptr;
+        }
         char* tmp = new char[s - _start + 1];
 
         for(size_t i = 0, j = _start; j < s; i++, j++)
@@ -918,6 +933,10 @@ namespace RTL{
         this->str = tmp;
     }
     void String::Cut(size_t _start, size_t _end) {
+        if(_start == _end) {
+            delete[] this->str;
+            this->str = nullptr;
+        }
         size_t s = strlen(this->str);
         char* tmp = new char[s - _start - (s - _end) + 1];
 
@@ -929,7 +948,33 @@ namespace RTL{
         this->str = tmp;
     }
 
-    size_t String::Size(){
+
+    String String::Wrest(size_t _start) const{
+        size_t s = strlen(this->str), ns = s - _start;
+        if(_start == s) return String();
+        String string;
+        string.str = new char[ns + 1];
+
+        for(size_t i = _start, j = 0; i < s; i++, j++)
+            string.str[j] = this->str[i];
+
+        string.str[ns] = '\0';
+        return string;
+    }
+    String String::Wrest(size_t _start, size_t _end) const{
+        if(_start == _end) return String();
+        size_t s = strlen(this->str), ns = s - (_start + (s - _end));
+        String string;
+        string.str = new char[ns + 1];
+
+        for(size_t i = _start, j = 0; i < _end; i++, j++)
+            string.str[j] = this->str[i];
+
+        string.str[ns] = '\0';
+        return string;
+    }
+
+    size_t String::Size() const{
         return strlen(this->str);
     }
 
