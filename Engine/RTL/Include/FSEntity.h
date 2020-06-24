@@ -35,7 +35,7 @@ namespace RTL{
         const FSEntity::FSEntityType& GetEntityType();
 
         static String* ApplicationDirectory;
-    private:
+    protected:
         String _EntityName;
         String _EntityFullPath;
         FSEntityType _EntityType;

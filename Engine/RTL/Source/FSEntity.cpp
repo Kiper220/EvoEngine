@@ -11,24 +11,26 @@ namespace RTL{
         String string1 = string;
         for (int i = 0; i < string1.Size(); ++i) {
             if(string1[i] == '.' && i != 0){
-                if(string1[i - 1] != '.'){
-                    if(string1[i + 1] == '.'){
-                        i--;
-                        if(string1[i] == '/' && string1[i + 3] == '/'){
-                            int s = i - 1;
-                            while(string1[s] != '/' && s != 0) s--;
-                            if(s == 0 && string1[s] != '/') return String();
-                            string1 = string1.Wrest(0, s) + string1.Wrest(i + 3);
-                            i = s;
+                if(string1[i + 1] == '/'){
+                    if(string1[i - 1] != '.'){
+                        if(string1[i + 1] == '.'){
+                            i--;
+                            if(string1[i] == '/' && string1[i + 3] == '/'){
+                                int s = i - 1;
+                                while(string1[s] != '/' && s != 0) s--;
+                                if(s == 0 && string1[s] != '/') return String();
+                                string1 = string1.Wrest(0, s) + string1.Wrest(i + 3);
+                                i = s;
+                            }
                         }
+                        else{
+                            i--;
+                            if(string1[i] == '/' && string1[i + 2] == '/')
+                                string1 = string1.Wrest(0, i) + string1.Wrest(i + 2);
+                        }
+                    }else{
+                        return String();
                     }
-                    else{
-                        i--;
-                        if(string1[i] == '/' && string1[i + 2] == '/')
-                            string1 = string1.Wrest(0, i) + string1.Wrest(i + 2);
-                    }
-                }else{
-                    return String();
                 }
             }
         }

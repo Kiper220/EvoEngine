@@ -5,6 +5,7 @@
 #ifndef GAME_DIRECTORY_H
 #define GAME_DIRECTORY_H
 #include <FSEntity.h>
+#include <Map.h>
 
 namespace RTL {
 
@@ -22,8 +23,19 @@ namespace RTL {
      */
     class Directory : public FSEntity{
     public:
+        Directory();
+        Directory(const String& string);
+        Directory(const Directory& directory);
+        Directory(Directory&& directory);
 
+        bool OpenDir();
+
+        const FSEntity* operator[](const String& string);
+
+
+        
     private:
+        Map<String, FSEntity*> DirectoryEntities;
     };
     /**
      * File count
