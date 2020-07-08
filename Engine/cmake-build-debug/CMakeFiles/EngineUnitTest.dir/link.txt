@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/EngineUnitTest.dir/main.cpp.o  -o ../BIN/EvoEngine/EngineUnitTest  -Wl,-rpath,/home/kiper220/EvoEngine/Engine/BIN/EvoEngine/lib ../BIN/EvoEngine/lib/librtl_window.so ../BIN/EvoEngine/lib/librtl_types.so -lpthread ../BIN/EvoEngine/lib/librtl_math.so -lX11 -lGLX -lXrender 

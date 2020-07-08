@@ -1,5 +1,0 @@
-/home/kiper220/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/201.7223.86/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/kiper220/EvoEngine/Engine
--- RWindow: window create target: Xlib
--- Configuring done
--- Generating done
--- Build files have been written to: /home/kiper220/EvoEngine/Engine/cmake-build-debug

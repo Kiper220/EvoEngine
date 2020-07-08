@@ -1,1 +1,0 @@
-/usr/bin/c++ -fPIC -g  -shared -Wl,-soname,librtl_math.so -o ../../../../BIN/EvoEngine/lib/librtl_math.so CMakeFiles/rtl_math.dir/src/IVector2.cpp.o CMakeFiles/rtl_math.dir/src/Matrix3.cpp.o CMakeFiles/rtl_math.dir/src/Quaternion.cpp.o CMakeFiles/rtl_math.dir/src/Triangle.cpp.o CMakeFiles/rtl_math.dir/src/Vector2.cpp.o CMakeFiles/rtl_math.dir/src/Vector3.cpp.o 
