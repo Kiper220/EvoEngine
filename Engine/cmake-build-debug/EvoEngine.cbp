@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="EvoEngine"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\Core\;CMake Files\Core\RTL\;CMake Files\Core\RTL\RTL_Types\;CMake Files\Core\RTL\RTL_Math\;CMake Files\Core\RTL\RTL_Window\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/kiper220/EvoEngine/Engine/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/kiper220/EvoEngine/Engine/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/kiper220/EvoEngine/Engine/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="EngineUnitTest">
+				<Option output="/home/kiper220/EvoEngine/Engine/BIN/EvoEngine/EngineUnitTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/kiper220/EvoEngine/Engine/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/kiper220/EvoEngine/Engine/Core/RTL/RTL_Types/include"/>
+					<Add directory="/home/kiper220/EvoEngine/Engine/Core/RTL"/>
+					<Add directory="/home/kiper220/EvoEngine/Engine/Core/RTL/RTL_Math/include"/>
+					<Add directory="/home/kiper220/EvoEngine/Engine/Core/RTL/RTL_Window/include/XWindow"/>
+					<Add directory="/home/kiper220/EvoEngine/Engine/Core/RTL/RTL_Window/include"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 EngineUnitTest"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="EngineUnitTest/fast">
+				<Option output="/home/kiper220/EvoEngine/Engine/BIN/EvoEngine/EngineUnitTest" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/kiper220/EvoEngine/Engine/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/kiper220/EvoEngine/Engine/Core/RTL/RTL_Types/include"/>
+					<Add directory="/home/kiper220/EvoEngine/Engine/Core/RTL"/>
+					<Add directory="/home/kiper220/EvoEngine/Engine/Core/RTL/RTL_Math/include"/>
+					<Add directory="/home/kiper220/EvoEngine/Engine/Core/RTL/RTL_Window/include/XWindow"/>
+					<Add directory="/home/kiper220/EvoEngine/Engine/Core/RTL/RTL_Window/include"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 EngineUnitTest/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rtl_types">
+				<Option output="/home/kiper220/EvoEngine/Engine/BIN/EvoEngine/lib/librtl_types.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/kiper220/EvoEngine/Engine/cmake-build-debug/Core/RTL/RTL_Types"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/kiper220/EvoEngine/Engine/Core/RTL/RTL_Types/include"/>
+					<Add directory="/home/kiper220/EvoEngine/Engine/Core/RTL"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Core/RTL/RTL_Types/Makefile&quot;  VERBOSE=1 rtl_types"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Core/RTL/RTL_Types/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Core/RTL/RTL_Types/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Core/RTL/RTL_Types/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rtl_types/fast">
+				<Option output="/home/kiper220/EvoEngine/Engine/BIN/EvoEngine/lib/librtl_types.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/kiper220/EvoEngine/Engine/cmake-build-debug/Core/RTL/RTL_Types"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/kiper220/EvoEngine/Engine/Core/RTL/RTL_Types/include"/>
+					<Add directory="/home/kiper220/EvoEngine/Engine/Core/RTL"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Core/RTL/RTL_Types/Makefile&quot;  VERBOSE=1 rtl_types/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Core/RTL/RTL_Types/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Core/RTL/RTL_Types/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Core/RTL/RTL_Types/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rtl_math">
+				<Option output="/home/kiper220/EvoEngine/Engine/BIN/EvoEngine/lib/librtl_math.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/kiper220/EvoEngine/Engine/cmake-build-debug/Core/RTL/RTL_Math"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/kiper220/EvoEngine/Engine/Core/RTL/RTL_Math/include"/>
+					<Add directory="/home/kiper220/EvoEngine/Engine/Core/RTL"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Core/RTL/RTL_Math/Makefile&quot;  VERBOSE=1 rtl_math"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Core/RTL/RTL_Math/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Core/RTL/RTL_Math/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Core/RTL/RTL_Math/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rtl_math/fast">
+				<Option output="/home/kiper220/EvoEngine/Engine/BIN/EvoEngine/lib/librtl_math.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/kiper220/EvoEngine/Engine/cmake-build-debug/Core/RTL/RTL_Math"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/kiper220/EvoEngine/Engine/Core/RTL/RTL_Math/include"/>
+					<Add directory="/home/kiper220/EvoEngine/Engine/Core/RTL"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Core/RTL/RTL_Math/Makefile&quot;  VERBOSE=1 rtl_math/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Core/RTL/RTL_Math/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Core/RTL/RTL_Math/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Core/RTL/RTL_Math/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rtl_window">
+				<Option output="/home/kiper220/EvoEngine/Engine/BIN/EvoEngine/lib/librtl_window.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/kiper220/EvoEngine/Engine/cmake-build-debug/Core/RTL/RTL_Window"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/kiper220/EvoEngine/Engine/Core/RTL/RTL_Window/include/XWindow"/>
+					<Add directory="/home/kiper220/EvoEngine/Engine/Core/RTL/RTL_Window/include"/>
+					<Add directory="/home/kiper220/EvoEngine/Engine/Core/RTL"/>
+					<Add directory="/home/kiper220/EvoEngine/Engine/Core/RTL/RTL_Types/include"/>
+					<Add directory="/home/kiper220/EvoEngine/Engine/Core/RTL/RTL_Math/include"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Core/RTL/RTL_Window/Makefile&quot;  VERBOSE=1 rtl_window"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Core/RTL/RTL_Window/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Core/RTL/RTL_Window/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Core/RTL/RTL_Window/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rtl_window/fast">
+				<Option output="/home/kiper220/EvoEngine/Engine/BIN/EvoEngine/lib/librtl_window.so" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/kiper220/EvoEngine/Engine/cmake-build-debug/Core/RTL/RTL_Window"/>
+				<Option object_output="./"/>
+				<Option type="3"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/kiper220/EvoEngine/Engine/Core/RTL/RTL_Window/include/XWindow"/>
+					<Add directory="/home/kiper220/EvoEngine/Engine/Core/RTL/RTL_Window/include"/>
+					<Add directory="/home/kiper220/EvoEngine/Engine/Core/RTL"/>
+					<Add directory="/home/kiper220/EvoEngine/Engine/Core/RTL/RTL_Types/include"/>
+					<Add directory="/home/kiper220/EvoEngine/Engine/Core/RTL/RTL_Math/include"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Core/RTL/RTL_Window/Makefile&quot;  VERBOSE=1 rtl_window/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Core/RTL/RTL_Window/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Core/RTL/RTL_Window/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/kiper220/EvoEngine/Engine/cmake-build-debug/Core/RTL/RTL_Window/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/kiper220/EvoEngine/Engine/Core/RTL/RTL.h">
+			<Option target="EngineUnitTest"/>
+		</Unit>
+		<Unit filename="/home/kiper220/EvoEngine/Engine/Core/RTL/RTL_Math/src/IVector2.cpp">
+			<Option target="rtl_math"/>
+		</Unit>
+		<Unit filename="/home/kiper220/EvoEngine/Engine/Core/RTL/RTL_Math/src/Matrix3.cpp">
+			<Option target="rtl_math"/>
+		</Unit>
+		<Unit filename="/home/kiper220/EvoEngine/Engine/Core/RTL/RTL_Math/src/Quaternion.cpp">
+			<Option target="rtl_math"/>
+		</Unit>
+		<Unit filename="/home/kiper220/EvoEngine/Engine/Core/RTL/RTL_Math/src/Triangle.cpp">
+			<Option target="rtl_math"/>
+		</Unit>
+		<Unit filename="/home/kiper220/EvoEngine/Engine/Core/RTL/RTL_Math/src/Vector2.cpp">
+			<Option target="rtl_math"/>
+		</Unit>
+		<Unit filename="/home/kiper220/EvoEngine/Engine/Core/RTL/RTL_Math/src/Vector3.cpp">
+			<Option target="rtl_math"/>
+		</Unit>
+		<Unit filename="/home/kiper220/EvoEngine/Engine/Core/RTL/RTL_Types/src/Directory.cpp">
+			<Option target="rtl_types"/>
+		</Unit>
+		<Unit filename="/home/kiper220/EvoEngine/Engine/Core/RTL/RTL_Types/src/FSEntity.cpp">
+			<Option target="rtl_types"/>
+		</Unit>
+		<Unit filename="/home/kiper220/EvoEngine/Engine/Core/RTL/RTL_Types/src/JElement.cpp">
+			<Option target="rtl_types"/>
+		</Unit>
+		<Unit filename="/home/kiper220/EvoEngine/Engine/Core/RTL/RTL_Types/src/String.cpp">
+			<Option target="rtl_types"/>
+		</Unit>
+		<Unit filename="/home/kiper220/EvoEngine/Engine/Core/RTL/RTL_Types/src/TCPServer.cpp">
+			<Option target="rtl_types"/>
+		</Unit>
+		<Unit filename="/home/kiper220/EvoEngine/Engine/Core/RTL/RTL_Window/src/Window.cpp">
+			<Option target="rtl_window"/>
+		</Unit>
+		<Unit filename="/home/kiper220/EvoEngine/Engine/Core/RTL/RTL_Window/src/XWindow/PWindow.cpp">
+			<Option target="rtl_window"/>
+		</Unit>
+		<Unit filename="/home/kiper220/EvoEngine/Engine/main.cpp">
+			<Option target="EngineUnitTest"/>
+		</Unit>
+		<Unit filename="/home/kiper220/EvoEngine/Engine/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/kiper220/EvoEngine/Engine/Core/RTL/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Core\RTL\"/>
+		</Unit>
+		<Unit filename="/home/kiper220/EvoEngine/Engine/Core/RTL/RTL_Types/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Core\RTL\RTL_Types\"/>
+		</Unit>
+		<Unit filename="/home/kiper220/EvoEngine/Engine/Core/RTL/RTL_Math/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Core\RTL\RTL_Math\"/>
+		</Unit>
+		<Unit filename="/home/kiper220/EvoEngine/Engine/Core/RTL/RTL_Window/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\Core\RTL\RTL_Window\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

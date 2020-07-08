@@ -1,16 +1,17 @@
-cmake_minimum_required(VERSION 3.12.4)
+cmake_minimum_required(VERSION 3.16)
 project(EvoEngine)
+set(CMAKE_CXX_STANDARD 14)
+set(EngineSourceDirectory ${PROJECT_SOURCE_DIR})
 
-add_subdirectory(RVM)
-add_subdirectory(RTL)
-add_subdirectory(RTMath)
-add_subdirectory(RTGraphics)
+add_subdirectory(Core/RTL)
 
-add_executable(EvoEngine main.cpp)
-target_link_libraries(EvoEngine RTGraphics RTL RTMath RVM)
+add_executable(EngineUnitTest main.cpp Core/RTL/RTL.h)
 
-target_include_directories(EvoEngine PUBLIC ${Boost_INCLUDE_DIRS} ${PROJECT_SOURCE_DIR})
-target_include_directories(RTMath PUBLIC ${PROJECT_DIR})
-target_include_directories(RTL PUBLIC ${PROJECT_DIR})
-target_include_directories(RTGraphics PUBLIC ${PROJECT_DIR})
-target_include_directories(RVM PUBLIC ${PROJECT_DIR})
+target_link_libraries(EngineUnitTest RTL::Types RTL::Math RTL::Window)
+
+set_target_properties(EngineUnitTest
+        PROPERTIES
+        EXECUTABLE_OUTPUT_PATH "${EngineSourceDirectory}/BIN/EvoEngine"
+        LIBRARY_OUTPUT_DIRECTORY "${EngineSourceDirectory}/BIN/EvoEngine/lib"
+        RUNTIME_OUTPUT_DIRECTORY  "${EngineSourceDirectory}/BIN/EvoEngine"
+        )

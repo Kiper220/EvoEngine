@@ -1,14 +1,6 @@
-cmake_minimum_required(VERSION 3.12.4)
-project(Game)
-
-set(CMAKE_CXX_STANDARD 17)
-
-set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR} CACHE PATH "Build directory" FORCE)
-set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR} CACHE PATH "Build directory" FORCE)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR})
-set(CMAKE_BUILD_FILES_DIRECTORY ${PROJECT_SOURCE_DIR})
-set(CMAKE_BINARY_DIR ${PROJECT_SOURCE_DIR})
-
-set(PROJECT_DIR ${PROJECT_SOURCE_DIR})
+cmake_minimum_required(VERSION 3.16)
+project(After)
 
 add_subdirectory(Engine)
+add_subdirectory(Editor)
+add_subdirectory(Game)

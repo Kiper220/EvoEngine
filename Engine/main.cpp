@@ -1,10 +1,7 @@
 #include <iostream>
-#include <dirent.h>
-#include <Directory.h>
+#include <RTL/Window/Window.h>
 
-int main(int argv, char **args) {
-    GLOBALDIR_INIT()
-    RTL::Directory dir("./");
-    dir.OpenDir();
-    (RTL::Directory*)dir["RedText"];
+int main(){
+    RTL::RWindow::Window window;
+    while(true);
 }
