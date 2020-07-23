@@ -39,12 +39,32 @@ namespace RTL::RWindow {
             bool            CloseWindowEvent =  true;
         }Settings;
 
+        typedef struct{
+            enum WindowEventType_T{
+                NONE,
+                KeyEvent,
+                CloseEvent,
+                WindowResize,
+            } WindowEventType;
+            char* data;
+        }WindowEvent;
+        enum WindowType{GLWindow, VKWindow};
+
         PWindow();
-        PWindow(Settings windowSettings);
+        PWindow(WindowType windowType);
+        PWindow(WindowType windowType, Settings windowSettings);
 
+        void MakeGLContext();
+        void GLSetThisWindow();
+        void GLSwapBuffer();
+        bool PullEvent();
+        void Close();
+        void Open(WindowType windowType);
 
+        Types::Vector<WindowEvent> EventList;
+    protected:
+        Settings wSettings;
     private:
-        Settings            wSettings;
 
         int                 xScreen;
         Atom                del_atom;
@@ -58,8 +78,8 @@ namespace RTL::RWindow {
 
         int                 numfbconfigs;
 
-        static GLXContext   render_context;
-        static bool         GLContextIsMake;
+        GLXContext          render_context;
+        bool                GLContextIsMake = false;
 
         Window              xRoot, window_handle;
         GLXWindow           glX_window_handle;

@@ -6,7 +6,7 @@
 #include <cstring>
 #include <algorithm>
 
-namespace RTL::Types{
+namespace RTL { namespace Types{
     String::String() {
         this->str = nullptr;
     }
@@ -975,6 +975,8 @@ namespace RTL::Types{
     }
 
     size_t String::Size() const{
+        if(this->str == nullptr)
+            return 0;
         return strlen(this->str);
     }
 
@@ -995,4 +997,4 @@ namespace RTL::Types{
         delete [] this->str;
         this->str = nullptr;
     }
-}
+} }

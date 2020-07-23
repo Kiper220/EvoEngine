@@ -7,7 +7,7 @@
 
 #include <cstddef>
 
-namespace RTL::Types{
+namespace RTL { namespace Types{
     /**
  *
  * \brief Red Template Library String class
@@ -382,6 +382,6 @@ namespace RTL::Types{
     private:
         char* str;
     };
-}
+} }
 
 #endif //GAME_STRING_H

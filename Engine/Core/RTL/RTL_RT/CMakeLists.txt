@@ -1,15 +1,14 @@
 cmake_minimum_required(VERSION 3.16)
-project(EvoEngine)
+project(RTL::Audio)
 set(CMAKE_CXX_STANDARD 14)
-set(EngineSourceDirectory ${PROJECT_SOURCE_DIR})
 
-add_subdirectory(Core/RTL)
+add_library(rtl_rt src/RVM.cpp)
+add_library(RTL::RT ALIAS rtl_rt)
 
-add_executable(EngineUnitTest main.cpp)
+target_include_directories(rtl_rt PUBLIC include ${RTL_SOURCE_DIR})
+target_link_libraries(rtl_rt RTL::Types RTL::Math)
 
-target_link_libraries(EngineUnitTest RTL::Types RTL::Math RTL::Window RTL::RT)
-
-set_target_properties(EngineUnitTest
+set_target_properties(rtl_rt
         PROPERTIES
         EXECUTABLE_OUTPUT_PATH "${EngineSourceDirectory}/BIN/EvoEngine"
         LIBRARY_OUTPUT_DIRECTORY "${EngineSourceDirectory}/BIN/EvoEngine/lib"

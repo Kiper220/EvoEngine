@@ -29,6 +29,20 @@ namespace RTL::Types{
             this->y = pair.y;
         }
 
+        bool operator ==(const Pair<_x, _y> pair) {
+            return this->x == pair.x && this->y == pair.y;
+        }
+        bool operator !=(const Pair<_x, _y> pair) {
+            return this->x == pair.x && this->y == pair.y;
+        }
+
+        bool operator ==(t_Pair pair) {
+            return this->x == pair.x && this->y == pair.y;
+        }
+        bool operator !=(t_Pair pair) {
+            return this->x == pair.x && this->y == pair.y;
+        }
+
         _x x;
         _y y;
     };

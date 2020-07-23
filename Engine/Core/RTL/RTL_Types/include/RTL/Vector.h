@@ -119,7 +119,7 @@ namespace RTL::Types{
          * \arg type1 - insert data;
          * \arg element - insert element position;
          */
-        void Insert(type &&type1, size_t element) {
+        void Insert(const type &&type1, size_t element) {
             if(element > this->_size) element = this->_size;
             iterator tmp = new type[++this->_size];
             if(tmp == nullptr) exit(11);
@@ -230,8 +230,8 @@ namespace RTL::Types{
          * Pop back method
          * \arg element -  target element position to erase;
          */
-        void Pop_Back(size_t element) {
-            this->erase(element);
+        void Pop_Back() {
+            this->Erase(this->_size);
         }
         /**
          * The overloading operator method of the "[]"
@@ -264,7 +264,7 @@ namespace RTL::Types{
          * \return Return vector is empty
          */
         bool IsEmpty() {
-            return this->size == 0;
+            return this->_size == 0;
         }
         /**
          * Clear vector function
@@ -273,6 +273,12 @@ namespace RTL::Types{
             delete [] this->_array;
             this->_array = nullptr;
             this->_size = 0;
+        }
+        /**
+         * Vector Data
+         */
+        iterator Data() {
+            return this->_array;
         }
         /**
          * Standart vector destructor

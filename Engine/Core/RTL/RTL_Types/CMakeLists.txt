@@ -7,7 +7,8 @@ add_library(rtl_types SHARED
         src/Directory.cpp
         src/TCPServer.cpp
         src/FSEntity.cpp
-        src/JElement.cpp)
+        src/JElement.cpp
+        src/Mutex.cpp)
 
 add_library(RTL::Types ALIAS rtl_types)
 target_include_directories(rtl_types PUBLIC include ${RTL_SOURCE_DIR})

@@ -4,6 +4,8 @@
 
 #ifndef GAME_TYPES_H
 #define GAME_TYPES_H
+#include <stddef.h>
+
 namespace RTL::Types {
 
     typedef unsigned long int uint64;

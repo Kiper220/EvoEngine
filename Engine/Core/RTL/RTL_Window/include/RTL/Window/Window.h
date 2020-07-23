@@ -1,20 +1,16 @@
 //
-// Created by kiper220 on 07.07.2020.
+// Created by kiper220 on 14.07.2020.
 //
 
 #ifndef GAME_WINDOW_H
 #define GAME_WINDOW_H
 
-#include <RTL/PWindow/PWindow.h>
+#include <RTL/Window/PWindow.h>
 
-namespace RTL::RWindow {
+namespace RTL::Window{
+    class Window{
 
-    class Window {
-    public:
-        Window();
-
-        PWindow pWindow;
-    private:
     };
 }
+
 #endif //GAME_WINDOW_H
