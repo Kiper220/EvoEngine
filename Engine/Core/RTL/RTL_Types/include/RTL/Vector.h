@@ -42,7 +42,7 @@ namespace RTL::Types{
          * Standard move constructor
          * \arg vector - target move;
          */
-        Vector(const Vector&& vector): _array(vector._array), _size(vector._size) {
+        Vector(Vector&& vector): _array(vector._array), _size(vector._size) {
             vector._array = nullptr;
             vector._size = 0;
         }

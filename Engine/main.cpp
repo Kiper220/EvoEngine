@@ -1,33 +1,15 @@
 #include <iostream>
-#include <RTL/Window/Window.h>
-#include <glad/glad.h>
-#include <unistd.h>
-#include <cmath>
+#include <RTL/JElement.h>
+
+using namespace RTL::Types;
 
 int main(){
-    RTL::Window::PWindow::Settings stngs;
-    stngs.Title = "Test Window";
-    RTL::Window::PWindow pWindow;
-    pWindow.Create();
+    JElement jElement;
+    jElement.setType(RTL::Types::JElementType::JRecord);
+    jElement["test"] = 143;
+    jElement["ges"] = 53;
 
-    RTL::Window::PWindow pWindow1;
-    pWindow1.Create();
+    std::cout << (String)jElement;
 
-    pWindow.SetRenderWindowThis();
-    gladLoadGL();
-    glDrawBuffer(GL_BACK);
-    glClearColor(1,1,1,1);
-    pWindow1.SetRenderWindowThis();
-    glDrawBuffer(GL_BACK);
-    glClearColor(1,1,1,1);
-
-    while (true) {
-        pWindow.SetRenderWindowThis();
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        pWindow.SwapBuffer();
-
-        pWindow1.SetRenderWindowThis();
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        pWindow1.SwapBuffer();
-    }
+    return 0;
 }

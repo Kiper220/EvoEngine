@@ -7,7 +7,7 @@ add_subdirectory(Core/RTL)
 
 add_executable(EngineUnitTest main.cpp)
 
-target_link_libraries(EngineUnitTest RTL::Types RTL::Math RTL::Window RTL::RT)
+target_link_libraries(EngineUnitTest RTL::Types RTL::Math RTL::RT)
 
 set_target_properties(EngineUnitTest
         PROPERTIES
