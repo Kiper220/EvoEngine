@@ -9,18 +9,20 @@
 
 #include <pthread.h>
 
-namespace RTL::Types{
-    class Mutex{
-    public:
-        Mutex();
-        void Lock();
-        void UnLock();
-        bool TryLock();
-        ~Mutex();
+namespace RTL {
+    namespace Types{
+        class Mutex{
+        public:
+            Mutex();
+            void Lock();
+            void UnLock();
+            bool TryLock();
+            ~Mutex();
 
-    private:
-        pthread_mutex_t mtx;
-    };
+        private:
+            pthread_mutex_t mtx;
+        };
+    }
 }
 
 #else

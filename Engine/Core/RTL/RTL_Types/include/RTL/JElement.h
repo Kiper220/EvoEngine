@@ -13,13 +13,13 @@ namespace RTL{
         public:
             JElement();
             JElement(String str);
+            JElement(const char* str);
             JElement(int i);
             JElement(double d);
             JElement(bool b);
             JElement(Map<String, JElement> jRecord);
             JElement(Vector<JElement> jArray);
-            JElement(IJElement* ijElement1);
-            JElement(IJElement** ijElement1);
+            JElement(Pointer<IJElement>ijElement1);
             JElement(const JElement& jElement);
             JElement(JElement&& jElement);
 
@@ -41,14 +41,14 @@ namespace RTL{
             void operator()(bool b);
             void operator()(Map<String, JElement> jRecord);
             void operator()(Vector<JElement> jArray);
-            void operator()(IJElement* ijElement1);
+            void operator()(Pointer<IJElement> ijElement1);
             void operator()(const JElement& jElement);
             void operator()(JElement&& jElement);
 
-            JElement operator[](String str);
-            JElement operator[](const char* str);
-            JElement operator[](int i);
-            JElement operator[](JElement jElement);
+            Pointer<IJElement>& operator[](const String& str);
+            Pointer<IJElement>& operator[](const char* str);
+            Pointer<IJElement>& operator[](int i);
+            Pointer<IJElement>& operator[](JElement jElement);
 
             operator String();
             operator int();
@@ -56,17 +56,12 @@ namespace RTL{
             operator bool();
             operator Map<String, JElement>();
             operator Vector<JElement>();
-            explicit operator IJElement*();
+            operator Pointer<IJElement>();
 
             ~JElement();
 
         private:
-            union {
-                IJElement* ijElement = nullptr;
-                IJElement** pIjElement;
-            } ijElementUnion;
-            bool none = true;
-            bool ptr = false;
+            Pointer<IJElement> ptr;
         };
     }
 }

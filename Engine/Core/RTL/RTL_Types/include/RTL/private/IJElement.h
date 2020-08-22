@@ -5,6 +5,7 @@
 #ifndef GAME_IJELEMENT_H
 #define GAME_IJELEMENT_H
 
+#include <RTL/Pointer.h>
 #include <RTL/String.h>
 #include <RTL/Map.h>
 
@@ -30,10 +31,11 @@ namespace RTL{
         class JRecord;
         class JArray;
 #else
-
+        class JElement;
         class IJElement {
         public:
             virtual String getFormattedData() = 0;
+            virtual String getFormattedData(int &i) = 0;
             virtual String getStringData() = 0;
             virtual int getIntegerData() = 0;
             virtual double getDoubleData() = 0;
@@ -46,9 +48,10 @@ namespace RTL{
             JString();
             JString(String s);
             JString(const JString& jString1);
-            void operator =(String s);
+            JString& operator =(String s);
 
             String getFormattedData() override;
+            String getFormattedData(int &i) override;
             String getStringData() override;
             int getIntegerData() override;
             double getDoubleData() override;
@@ -64,9 +67,10 @@ namespace RTL{
             JInteger();
             JInteger(int i);
             JInteger(const JInteger& jInteger1);
-            void operator =(int i);
+            JInteger& operator =(int i);
 
             String getFormattedData() override;
+            String getFormattedData(int &i) override;
             String getStringData() override;
             int getIntegerData() override;
             double getDoubleData() override;
@@ -85,6 +89,7 @@ namespace RTL{
             void operator =(double d);
 
             String getFormattedData() override;
+            String getFormattedData(int &i) override;
             String getStringData() override;
             int getIntegerData() override;
             double getDoubleData() override;
@@ -103,6 +108,7 @@ namespace RTL{
             void operator =(bool b);
 
             String getFormattedData() override;
+            String getFormattedData(int &i) override;
             String getStringData() override;
             int getIntegerData() override;
             double getDoubleData() override;
@@ -116,31 +122,34 @@ namespace RTL{
         class JRecord : public IJElement{
         public:
             JRecord();
-            JRecord(Map<String, IJElement*> r);
+            JRecord(Map<String, JElement> r);
             JRecord(const JRecord& jRecord1);
-            void operator =(Map<String, IJElement*> r);
+            void operator =(const JRecord& jRecord1);
+            void operator =(Map<String, JElement> r);
 
             String getFormattedData() override;
+            String getFormattedData(int &i) override;
             String getStringData() override;
             int getIntegerData() override;
             double getDoubleData() override;
             bool getBoolData() override;
             JElementType::Type getType() override;
-            Pair<String, IJElement*>* begin();
-            Pair<String, IJElement*>* end();
+            Pair<String, Pointer<IJElement>>* begin();
+            Pair<String, Pointer<IJElement>>* end();
 
             friend class JElement;
         private:
-            Map<String, IJElement*> jRecord;
+            Map<String, Pointer<IJElement>> jRecord;
         };
         class JArray : public IJElement{
         public:
             JArray();
-            JArray(Vector<IJElement*> a);
+            JArray(Vector<JElement> a);
             JArray(const JArray& jArray1);
-            void operator =(Vector<IJElement*> a);
+            JArray& operator =(Vector<JElement> a);
 
             String getFormattedData() override;
+            String getFormattedData(int &i) override;
             String getStringData() override;
             int getIntegerData() override;
             double getDoubleData() override;
@@ -149,7 +158,7 @@ namespace RTL{
 
             friend class JElement;
         private:
-            Vector<IJElement*> jArray;
+            Vector<Pointer<IJElement>> jArray;
         };
 #endif
     }

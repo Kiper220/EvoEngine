@@ -141,6 +141,89 @@ namespace RTL {
                     }
                 }
             }
+            value& GetValueWithKey(const key &_Key, bool &isNew) {
+                isNew = false;
+                if (Data.Size() == 0) {
+                    Data.Push_Back(Pair<key, value>());
+                    isNew = true;
+                    Data[0].x = _Key;
+                    return Data[0].y;
+                } else if (Data.Size() == 1) {
+                    if (Data[0].x == _Key)
+                        return Data[0].y;
+                    else {
+                        if (Data[0].x < _Key) {
+                            Data.Insert(Pair<key, value>(), 1);
+                            isNew = true;
+                            Data[1].x = _Key;
+                            return Data[1].y;
+                        } else {
+                            Data.Insert(Pair<key, value>(), 0);
+                            isNew = true;
+                            Data[0].x = _Key;
+                            return Data[0].y;
+                        }
+                    }
+                } else if (Data.Size() == 2) {
+                    if (Data[0].x == _Key)
+                        return Data[0].y;
+                    if (Data[1].x == _Key)
+                        return Data[1].y;
+
+                    if(Data[0].x > _Key) {
+                        Data.Insert(Pair<key, value>(), 0);
+                        isNew = true;
+                        Data[0].x = _Key;
+                        return Data[0].y;
+                    }
+                    else if (Data[0].x < _Key) {
+                        if (Data[1].x > _Key) {
+                            Data.Insert(Pair<key, value>(), 1);
+                            isNew = true;
+                            Data[1].x = _Key;
+                            return Data[1].y;
+                        } else {
+                            Data.Insert(Pair<key, value>(), 2);
+                            isNew = true;
+                            Data[2].x = _Key;
+                            return Data[2].y;
+                        }
+                    }
+                } else {
+                    size_t l = 0, r = Data.Size(), p = (l + r) / 2;
+
+                    if (Data[l].x == _Key)
+                        return Data[l].y;
+                    if (Data[r].x == _Key)
+                        return Data[r].y;
+                    if (Data[p].x == _Key)
+                        return Data[p].y;
+
+                    while (true) {
+                        if (Data[p].x == _Key)
+                            return Data[p].y;
+
+                        else if (Data[p].x > _Key)
+                            r = p;
+                        else l = p;
+
+                        p = (l + r) / 2;
+                        if (p == l || p == r)
+                            break;
+                    }
+                    if (Data[p].x < _Key) {
+                        Data.Insert(Pair<key, value>(), p + 1);
+                        isNew = true;
+                        Data[p + 1].x = _Key;
+                        return Data[p + 1].y;
+                    }else{
+                        Data.Insert(Pair<key, value>(), p);
+                        isNew = true;
+                        Data[p].x = _Key;
+                        return Data[p].y;
+                    }
+                }
+            }
             /**
             * \brief Map overload operator[](key)
             * \arg _Key - key to get value reference
