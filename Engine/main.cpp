@@ -1,26 +1,21 @@
 #include <iostream>
+#include <RTL/Types.h>
+#include <RTL/Exception.h>
 #include <RTL/Pointer.h>
-#include <RTL/JElement.h>
+#include <RTL/Vector.h>
+#include <RTL/Map.h>
+#include <RTL/String.h>
+#include <RTL/Pair.h>
+#include <RTL/Thread.h>
+#include <RTL/FSEntity.h>
+#include <RTL/Directory.h>
+#include <RTL/TCPServer.h>
 
 using namespace RTL::Types;
 
-int main(){
-    JElement jElement;
-    jElement.setType(RTL::Types::JElementType::JRecord);
-    jElement["value1"] = JElement(127);
-    jElement["value2"] = JElement(53);
-    jElement["Object"] = JElement(Map<String, JElement>(
-                {
-                        {"test1", JElement(532)},
-                        {"test2", JElement(142.422)}
-                    }
-                    ));
-    jElement["Array"] = JElement(Vector<JElement>(
-            {
-                JElement("test1"),
-                JElement("test2")
-            }));
+// TODO: Refactor all RTL::Types classes. Add exception processing.
 
-    std::cout << (String)jElement;
+int main(){
+
     return 0;
 }

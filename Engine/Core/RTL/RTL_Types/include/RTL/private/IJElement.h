@@ -86,7 +86,7 @@ namespace RTL{
             JDouble();
             JDouble(double d);
             JDouble(const JDouble& jDouble1);
-            void operator =(double d);
+            JDouble& operator =(double d);
 
             String getFormattedData() override;
             String getFormattedData(int &i) override;
@@ -105,7 +105,7 @@ namespace RTL{
             JBool();
             JBool(bool b);
             JBool(const JBool& jBool1);
-            void operator =(bool b);
+            JBool& operator =(bool b);
 
             String getFormattedData() override;
             String getFormattedData(int &i) override;
@@ -124,8 +124,8 @@ namespace RTL{
             JRecord();
             JRecord(Map<String, JElement> r);
             JRecord(const JRecord& jRecord1);
-            void operator =(const JRecord& jRecord1);
-            void operator =(Map<String, JElement> r);
+            JRecord& operator =(const JRecord& jRecord1);
+            JRecord& operator =(Map<String, JElement> r);
 
             String getFormattedData() override;
             String getFormattedData(int &i) override;

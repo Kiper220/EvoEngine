@@ -8,10 +8,3 @@ add_subdirectory(Core/RTL)
 add_executable(EngineUnitTest main.cpp)
 
 target_link_libraries(EngineUnitTest RTL::Types RTL::Math RTL::RT)
-
-set_target_properties(EngineUnitTest
-        PROPERTIES
-        EXECUTABLE_OUTPUT_PATH "${EngineSourceDirectory}/BIN/EvoEngine"
-        LIBRARY_OUTPUT_DIRECTORY "${EngineSourceDirectory}/BIN/EvoEngine/lib"
-        RUNTIME_OUTPUT_DIRECTORY  "${EngineSourceDirectory}/BIN/EvoEngine"
-        )

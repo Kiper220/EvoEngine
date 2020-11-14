@@ -25,15 +25,16 @@ namespace RTL{
 
             void setType(JElementType::Type type);
 
-            void operator=(String str);
-            void operator=(int i);
-            void operator=(double d);
-            void operator=(bool b);
-            void operator=(Map<String, JElement> jRecord);
-            void operator=(Vector<JElement> jArray);
-            void operator=(IJElement* ijElement1);
-            void operator=(const JElement& jElement);
-            void operator=(JElement&& jElement);
+            JElement& operator=(String str);
+            JElement& operator=(int i);
+            JElement& operator=(double d);
+            JElement& operator=(bool b);
+            JElement& operator=(Map<String, JElement> jRecord);
+            JElement& operator=(Vector<JElement> jArray);
+            JElement& operator=(Vector<Pair<JElement, JElement>> jArray);
+            JElement& operator=(IJElement* ijElement1);
+            JElement& operator=(const JElement& jElement);
+            JElement& operator=(JElement&& jElement);
 
             void operator()(String str);
             void operator()(int i);
@@ -45,10 +46,10 @@ namespace RTL{
             void operator()(const JElement& jElement);
             void operator()(JElement&& jElement);
 
-            Pointer<IJElement>& operator[](const String& str);
-            Pointer<IJElement>& operator[](const char* str);
-            Pointer<IJElement>& operator[](int i);
-            Pointer<IJElement>& operator[](JElement jElement);
+            JElement operator[](const String& str);
+            JElement operator[](const char* str);
+            JElement operator[](int i);
+            JElement operator[](JElement jElement);
 
             operator String();
             operator int();

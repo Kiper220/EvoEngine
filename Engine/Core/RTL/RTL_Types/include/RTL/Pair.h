@@ -5,6 +5,8 @@
 #ifndef GAME_PAIR_H
 #define GAME_PAIR_H
 
+// TODO: Check, refactoring and add exception processing. Add comments
+
 namespace RTL {
     namespace Types{
         template<typename _x, typename _y>

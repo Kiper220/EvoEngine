@@ -8,6 +8,8 @@
 #include <RTL/Vector.h>
 #include <RTL/Pair.h>
 
+// TODO: Check, refactoring and add exception processing
+
 namespace RTL {
     namespace Types{
         /**

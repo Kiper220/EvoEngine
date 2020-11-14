@@ -7,6 +7,8 @@
 
 #include <cstddef>
 
+// TODO: Check, refactoring and add exception processing
+
 namespace RTL { namespace Types{
     /**
  *

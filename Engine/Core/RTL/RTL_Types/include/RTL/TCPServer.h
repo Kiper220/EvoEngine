@@ -10,6 +10,8 @@
 #include <thread>
 #include <list>
 
+// TODO: Delete all data and refactoring from scratch
+
 #ifdef _WIN32 // Windows NT
 
 #include <WinSock2.h>

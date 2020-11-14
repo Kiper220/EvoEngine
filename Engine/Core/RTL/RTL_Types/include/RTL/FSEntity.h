@@ -7,6 +7,9 @@
 
 #include <RTL/String.h>
 
+
+// TODO: Check, refactoring and add exception processing. Add comments
+
 #define GLOBALDIR_INIT()                                                                \
 RTL::String ApplicationDirectory = args[0];                                             \
 int i;                                                                                  \

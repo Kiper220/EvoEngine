@@ -82,8 +82,9 @@ namespace RTL{
         JDouble::JDouble(const JDouble& jDouble1){
             this->jDouble = jDouble1.jDouble;
         }
-        void JDouble::operator=(double d){
+        JDouble& JDouble::operator=(double d){
             this->jDouble = d;
+            return *this;
         }
 
         String JDouble::getFormattedData(){
@@ -116,8 +117,9 @@ namespace RTL{
         JBool::JBool(const JBool& jBool1){
             this->jBool = jBool1.jBool;
         }
-        void JBool::operator =(bool b){
+        JBool& JBool::operator =(bool b){
             this->jBool = b;
+            return *this;
         }
 
         String JBool::getFormattedData(){
@@ -154,13 +156,15 @@ namespace RTL{
         JRecord::JRecord(const JRecord& jRecord1){
             this->jRecord = jRecord1.jRecord;
         }
-        void JRecord::operator =(const JRecord& jRecord1){
+        JRecord& JRecord::operator =(const JRecord& jRecord1){
             this->jRecord = jRecord1.jRecord;
+            return *this;
         }
-        void JRecord::operator =(Map<String, JElement> r){
+        JRecord& JRecord::operator =(Map<String, JElement> r){
             this->jRecord.Clear();
             for(auto e: r)
                 this->jRecord[e.x] = (Pointer<IJElement>)e.y;
+            return *this;
         }
 
         String JRecord::getFormattedData() {
@@ -356,42 +360,65 @@ namespace RTL{
                 case JElementType::JArray:
                     this->ptr = new JArray();
                     break;
+                default:
+                    fprintf(stderr, "Error: Invalid RTL::Types::JElementType value in JElement::setType()");
+                    throw -11;
             }
         }
 
-        void JElement::operator=(String str){
+        JElement& JElement::operator=(String str){
             this->ptr = new JString();
             ((JString&)*this->ptr) = std::move(str);
+            return *this;
         }
-        void JElement::operator=(int i){
+        JElement& JElement::operator=(int i){
             this->ptr = new JInteger();
             ((JInteger&)*this->ptr) = i;
+            return *this;
         }
-        void JElement::operator=(double d){
+        JElement& JElement::operator=(double d){
             this->ptr = new JDouble();
             ((JDouble&)*this->ptr) = d;
+            return *this;
         }
-        void JElement::operator=(bool b){
+        JElement& JElement::operator=(bool b){
             this->ptr = new JBool();
             ((JBool&)*this->ptr) = b;
+            return *this;
         }
-        void JElement::operator=(Map<String, JElement> jRecord){
+        JElement& JElement::operator=(Map<String, JElement> jRecord){
             this->ptr = new JRecord();
             ((JRecord&)*this->ptr) = std::move(jRecord);
+            return *this;
         }
-        void JElement::operator=(Vector<JElement> jArray){
+        JElement& JElement::operator=(Vector<JElement> jArray){
             this->ptr = new JArray();
             ((JArray&)*this->ptr) = std::move(jArray);
+            return *this;
         }
-        void JElement::operator=(IJElement* ijElement1){
+        JElement& JElement::operator=(Vector<Pair<JElement, JElement>> jArray){
+            Map<String, JElement> tmp;
+            for(auto jRecord: jArray){
+                if((*jRecord.x.ptr).getType() == JElementType::JRecord || (*jRecord.x.ptr).getType() == JElementType::JArray){
+                    return *this;
+                }
+                tmp[jRecord.x] = jRecord.y;
+            }
+            *this = tmp;
+            return *this;
+        }
+        JElement& JElement::operator=(IJElement* ijElement1){
             this->ptr = ijElement1;
+            return *this;
         }
-        void JElement::operator=(const JElement& jElement){
+        JElement& JElement::operator=(const JElement& jElement){
             this->ptr = jElement.ptr;
+            return *this;
         }
-        void JElement::operator=(JElement&& jElement){
+        JElement& JElement::operator=(JElement&& jElement){
             this->ptr = jElement.ptr;
             jElement.ptr = nullptr;
+            return *this;
         }
 
         void JElement::operator()(String str){
@@ -422,29 +449,73 @@ namespace RTL{
             *this = jElement;
         }
 
-        Pointer<IJElement>& JElement::operator[](const String& str){
-            if((*this->ptr).getType() == JElementType::JRecord)
-                return (*((JRecord*)(IJElement*)this->ptr)).jRecord[str];
-            else if((*this->ptr).getType() == JElementType::JArray)
-                return (*((JArray*)(IJElement*)this->ptr)).jArray[atoi(str)];
+        JElement JElement::operator[](const String& str){
+            if (!this->ptr.isEmpty()) {
+                if ((*this->ptr).getType() == JElementType::JRecord)
+                    return ((*((JRecord *) (IJElement *) this->ptr)).jRecord[str]);
+                if ((*this->ptr).getType() == JElementType::JArray)
+                    return (*((JArray *) (IJElement *) this->ptr)).jArray[atoi(str)];
+            }
+
+            this->setType(JElementType::JRecord);
+            return (*((JRecord*)(IJElement*)this->ptr)).jRecord[str];
         }
-        Pointer<IJElement>& JElement::operator[](const char* str){
-            if(((IJElement*)this->ptr)->getType() == JElementType::JRecord)
-                return (*((JRecord*)(IJElement*)this->ptr)).jRecord[str];
-            else if((*this->ptr).getType() == JElementType::JArray)
-                return (*((JArray*)(IJElement*)this->ptr)).jArray[atoi(str)];
+        JElement JElement::operator[](const char* str){
+            if (!this->ptr.isEmpty()){
+                if(((IJElement*)this->ptr)->getType() == JElementType::JRecord)
+                    return (*((JRecord*)(IJElement*)this->ptr)).jRecord[str];
+                if((*this->ptr).getType() == JElementType::JArray)
+                    return (*((JArray*)(IJElement*)this->ptr)).jArray[atoi(str)];
+            }
+
+            this->setType(JElementType::JRecord);
+            return (*((JRecord*)(IJElement*)this->ptr)).jRecord[str];
         }
-        Pointer<IJElement>& JElement::operator[](int i){
-            if((*this->ptr).getType() == JElementType::JRecord)
-                return (*((JRecord*)(IJElement*)this->ptr)).jRecord[std::to_string(i).data()];
-            else if((*this->ptr).getType() == JElementType::JArray)
-                return (*((JArray*)(IJElement*)this->ptr)).jArray[i];
+        JElement JElement::operator[](int i){
+            if (!this->ptr.isEmpty()) {
+                if ((*this->ptr).getType() == JElementType::JRecord)
+                    return (*((JRecord *) (IJElement *) this->ptr)).jRecord[std::to_string(i).data()];
+                if ((*this->ptr).getType() == JElementType::JArray)
+                    return (*((JArray *) (IJElement *) this->ptr)).jArray[i];
+            }
+
+            this->setType(JElementType::JArray);
+            return (*((JArray*)(IJElement*)this->ptr)).jArray[i];
         }
-        Pointer<IJElement>& JElement::operator[](JElement jElement){
-            if((*this->ptr).getType() == JElementType::JRecord)
-                return (*((JRecord*)(IJElement*)this->ptr)).jRecord[jElement];
-            else if((*this->ptr).getType() == JElementType::JArray)
-                return (*((JArray*)(IJElement*)this->ptr)).jArray[(int)jElement];
+        JElement JElement::operator[](JElement jElement){
+            if (!this->ptr.isEmpty()) {
+                if ((*this->ptr).getType() == JElementType::JRecord)
+                    return (*((JRecord *) (IJElement *) this->ptr)).jRecord[jElement];
+                if ((*this->ptr).getType() == JElementType::JArray)
+                    return (*((JArray *) (IJElement *) this->ptr)).jArray[(int) jElement];
+            }
+
+            if(!jElement.ptr.isEmpty()){
+                switch((*jElement.ptr).getType()){
+                    case JElementType::JString:
+                        this->setType(JElementType::JRecord);
+                        return (*((JRecord*)(IJElement*)this->ptr)).jRecord[jElement];
+
+                    case JElementType::JInteger:
+                        this->setType(JElementType::JArray);
+                        return (*((JArray*)(IJElement*)this->ptr)).jArray[(int)jElement];
+
+                    case JElementType::JDouble:
+                        this->setType(JElementType::JArray);
+                        return (*((JArray*)(IJElement*)this->ptr)).jArray[(int)jElement];
+
+                    case JElementType::JBool:
+                        // Error
+                        break;
+                    case JElementType::JRecord:
+                        // Error
+                        break;
+                    case JElementType::JArray:
+                        // Error
+                        break;
+                }
+            }
+            exit(-1);
         }
 
         JElement::operator String(){
@@ -459,7 +530,7 @@ namespace RTL{
         JElement::operator bool() {
             return ((IJElement*)this->ptr)->getBoolData();
         }
-        JElement::operator Map<String, JElement>(){ {
+        JElement::operator Map<String, JElement>(){
             if((*this->ptr).getType() == JElementType::JRecord){
                 Map<String, JElement> ret;
                 for(const auto& e: (*((JRecord*)(IJElement*)this->ptr)).jRecord)
@@ -467,7 +538,6 @@ namespace RTL{
                 return ret;
             }
             return Map<String, JElement>();
-        }
         }
         JElement::operator Vector<JElement>(){
             if((*this->ptr).getType() == JElementType::JArray){
@@ -478,6 +548,7 @@ namespace RTL{
             }
             return Vector<JElement>();
         }
+
         JElement::operator Pointer<IJElement>(){
             return this->ptr;
         }

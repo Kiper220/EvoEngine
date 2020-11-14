@@ -7,13 +7,6 @@ set(RTL_SOURCE_DIR ${PROJECT_SOURCE_DIR})
 add_library(glad SHARED Extention/Linux/glad/gl/src/glad.c)
 target_include_directories(glad PUBLIC Extention/Linux/glad/gl/include Extention/Linux/glad/glx/include)
 
-set_target_properties(glad
-        PROPERTIES
-        EXECUTABLE_OUTPUT_PATH "${EngineSourceDirectory}/BIN/EvoEngine"
-        LIBRARY_OUTPUT_DIRECTORY "${EngineSourceDirectory}/BIN/EvoEngine/lib"
-        RUNTIME_OUTPUT_DIRECTORY  "${EngineSourceDirectory}/BIN/EvoEngine"
-        )
-
 add_subdirectory(RTL_Types)
 add_subdirectory(RTL_Math)
 add_subdirectory(RTL_Window)

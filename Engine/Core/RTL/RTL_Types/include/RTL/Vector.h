@@ -7,6 +7,8 @@
 #include <cstddef>
 #include <algorithm>
 
+// TODO: Check, refactoring and add exception processing
+
 namespace RTL::Types{
     /**
      *
@@ -50,7 +52,7 @@ namespace RTL::Types{
          * Standard constructor copy of static array
          * \arg array - static array;
          */
-        Vector(std::initializer_list<type> array): _size(array.end() - array.begin()) {
+        Vector(std::initializer_list<type> array){
             this->_array = new type[this->_size];
             if(this->_array == nullptr) exit(11);
 

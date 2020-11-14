@@ -7,10 +7,10 @@
 
 #include <RTL/Window/PWindow.h>
 
-namespace RTL::Window{
-    class Window{
+namespace RTL {
+    namespace Window{
 
-    };
+    }
 }
 
 #endif //GAME_WINDOW_H

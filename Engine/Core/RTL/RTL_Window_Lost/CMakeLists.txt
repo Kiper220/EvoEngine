@@ -14,12 +14,6 @@ if(${CMAKE_SYSTEM} MATCHES "Linux")
     add_library(RTL::Window ALIAS rtl_window)
     target_link_libraries(rtl_window RTL::Types RTL::Math X11 GLX Xrender)
     target_include_directories(rtl_window PUBLIC include/XWindow)
-    set_target_properties(rtl_window
-            PROPERTIES
-            EXECUTABLE_OUTPUT_PATH "${EngineSourceDirectory}/BIN/EvoEngine"
-            LIBRARY_OUTPUT_DIRECTORY "${EngineSourceDirectory}/BIN/EvoEngine/lib"
-            RUNTIME_OUTPUT_DIRECTORY  "${EngineSourceDirectory}/BIN/EvoEngine"
-            )
 
 elseif(WIN32)
     message(FATAL_ERROR "This platform not supported")

@@ -6,6 +6,8 @@
 #define GAME_POINTER_H
 #include <RTL/Mutex.h>
 
+// TODO: Check, refactor and adding exception processing. Add comments
+
 namespace RTL{
     namespace Types{
         template <typename t>

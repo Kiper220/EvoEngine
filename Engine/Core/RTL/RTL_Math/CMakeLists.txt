@@ -12,10 +12,3 @@ add_library(rtl_math SHARED
 
 add_library(RTL::Math ALIAS rtl_math)
 target_include_directories(rtl_math PUBLIC include ${RTL_SOURCE_DIR})
-
-set_target_properties(rtl_math
-        PROPERTIES
-        EXECUTABLE_OUTPUT_PATH "${EngineSourceDirectory}/BIN/EvoEngine"
-        LIBRARY_OUTPUT_DIRECTORY "${EngineSourceDirectory}/BIN/EvoEngine/lib"
-        RUNTIME_OUTPUT_DIRECTORY  "${EngineSourceDirectory}/BIN/EvoEngine"
-        )

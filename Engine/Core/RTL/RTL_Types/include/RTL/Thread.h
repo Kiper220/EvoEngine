@@ -7,6 +7,8 @@
 
 #include <pthread.h>
 
+// TODO: Check, refactoring and add exception processing
+
 namespace RTL::Types {
 
     template<typename arg>

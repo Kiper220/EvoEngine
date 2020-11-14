@@ -7,6 +7,8 @@
 #include <RTL/FSEntity.h>
 #include <RTL/Map.h>
 
+// TODO: Check, refactoring and add exception processing
+
 namespace RTL::Types {
 
     /**
